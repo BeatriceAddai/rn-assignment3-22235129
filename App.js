@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, FlatList, Text, Image, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
+
+
 const element = [
   {
     id: '1',
@@ -86,7 +88,12 @@ export default function App() {
       {/* SEARCH BAR */}
       <View style={styles.searchContainer}>
         <MaterialIcons name="search" size={24} color="black" style={styles.searchIcon} />
-        <TextInput placeholder="Search" placeholderTextColor="black" style={styles.input} />
+        <TextInput 
+        placeholder="Search" 
+        placeholderTextColor="black" 
+        style={styles.input} 
+        />
+        
         <Image source={require('./assets/filter-new.png')} style={styles.filter} />
       </View>
 
@@ -96,10 +103,10 @@ export default function App() {
       {/* CATEGORY LIST */}
       <FlatList
         data={element}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id}
         horizontal
         showsHorizontalScrollIndicator={true}
-        style={{ height: 250 }}
+        style={{ height: 300 }}
         renderItem={({ item }) => (
           <View style={styles.one}>
             <Image source={item.image} style={styles.categoryImage} />
@@ -109,7 +116,7 @@ export default function App() {
         )}
       />
 
-      {/* ONGOING TASKS */}
+    
       <Text style={styles.heading}>Ongoing Task</Text>
       <FlatList
         data={tasks}
@@ -209,6 +216,8 @@ const styles = StyleSheet.create({
   taskCount: {
     fontSize: 12,
     color: 'gray',
+    backgroundColor: 'white', 
+  padding: 5,
   },
   heading: {
     fontSize: 20,
